@@ -28,7 +28,6 @@ fun OptimizationScreen(
     val activityLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ) {
-        // Mark current step as completed when user returns
         viewModel.markStepCompleted(state.currentStepIndex)
     }
 
@@ -58,7 +57,6 @@ fun OptimizationScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Progress Card
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
@@ -92,7 +90,6 @@ fun OptimizationScreen(
                 }
             }
 
-            // Info Banner
             Card(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.tertiaryContainer
@@ -110,7 +107,6 @@ fun OptimizationScreen(
                 }
             }
 
-            // Steps List
             state.steps.forEachIndexed { index, step ->
                 OptimizationStepCard(
                     step = step,

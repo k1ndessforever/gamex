@@ -1,4 +1,4 @@
-package com.gamex.ui.screens
+package com.guardian.gamex.ui.screens
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
@@ -17,8 +17,8 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.gamex.data.room.BenchmarkResult
-import com.gamex.viewmodel.BenchmarkViewModel
+import com.guardian.gamex.data.room.BenchmarkResult
+import com.guardian.gamex.viewmodel.BenchmarkViewModel
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -52,7 +52,6 @@ fun BenchmarkScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Run Benchmark Card
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
@@ -100,12 +99,10 @@ fun BenchmarkScreen(
                 }
             }
 
-            // Current Result
             state.currentResult?.let { result ->
                 BenchmarkResultCard(result = result, isLatest = true)
             }
 
-            // Recent Results
             if (state.recentResults.isNotEmpty()) {
                 Text(
                     text = "Recent Results",
@@ -159,7 +156,7 @@ private fun BenchmarkResultCard(
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = result.profileUsed.capitalize(),
+                    text = result.profileUsed.replaceFirstChar { it.uppercase() },
                     style = MaterialTheme.typography.bodySmall
                 )
             }
@@ -217,5 +214,3 @@ private fun formatTimestamp(timestamp: Long): String {
     val sdf = SimpleDateFormat("MMM dd, HH:mm", Locale.getDefault())
     return sdf.format(Date(timestamp))
 }
-
-private fun String.capitalize() = replaceFirstChar { it.uppercase() }

@@ -1,12 +1,12 @@
-package com.gamex.viewmodel
+package com.guardian.gamex.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.gamex.core.detection.DeviceCapabilities
-import com.gamex.core.detection.DeviceDetector
-import com.gamex.data.prefs.PreferencesManager
-import com.gamex.service.FpsData
+import com.guardian.gamex.core.detection.DeviceCapabilities
+import com.guardian.gamex.core.detection.DeviceDetector
+import com.guardian.gamex.data.prefs.PreferencesManager
+import com.guardian.gamex.service.FpsData
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 

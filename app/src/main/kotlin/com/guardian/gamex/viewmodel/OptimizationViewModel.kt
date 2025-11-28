@@ -1,14 +1,12 @@
-package com.gamex.viewmodel
+package com.guardian.gamex.viewmodel
 
 import android.app.Application
 import android.content.Intent
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.viewModelScope
-import com.gamex.core.optimizer.OptimizationEngine
-import com.gamex.core.optimizer.OptimizationState
-import com.gamex.core.optimizer.OptimizationStep
+import com.guardian.gamex.core.optimizer.OptimizationEngine
+import com.guardian.gamex.core.optimizer.OptimizationState
+import com.guardian.gamex.core.optimizer.OptimizationStep
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 
 class OptimizationViewModel(application: Application) : AndroidViewModel(application) {
 

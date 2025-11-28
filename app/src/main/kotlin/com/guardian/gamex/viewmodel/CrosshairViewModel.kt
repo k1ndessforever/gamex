@@ -1,9 +1,9 @@
-package com.gamex.viewmodel
+package com.guardian.gamex.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.gamex.data.prefs.PreferencesManager
+import com.guardian.gamex.data.prefs.PreferencesManager
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -36,8 +36,15 @@ class CrosshairViewModel(application: Application) : AndroidViewModel(applicatio
                 prefsManager.crosshairOpacity,
                 prefsManager.overlayEnabled,
                 prefsManager.tosAccepted
-            ) { style, size, color, opacity, enabled, tos ->
-                CrosshairSettings(style, size, color, opacity, enabled, tos)
+            ) { flows: Array<Any?> ->
+                CrosshairSettings(
+                    style = flows[0] as String,
+                    size = flows[1] as Float,
+                    color = flows[2] as Int,
+                    opacity = flows[3] as Float,
+                    enabled = flows[4] as Boolean,
+                    tosAccepted = flows[5] as Boolean
+                )
             }.collect { _settings.value = it }
         }
     }

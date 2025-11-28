@@ -1,4 +1,4 @@
-package com.gamex.viewmodel
+package com.guardian.gamex.viewmodel
 
 import android.app.Application
 import android.app.ActivityManager
@@ -6,8 +6,8 @@ import android.content.Context
 import android.os.BatteryManager
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.gamex.data.room.BenchmarkDatabase
-import com.gamex.data.room.BenchmarkResult
+import com.guardian.gamex.data.room.BenchmarkDatabase
+import com.guardian.gamex.data.room.BenchmarkResult
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -43,12 +43,10 @@ class BenchmarkViewModel(application: Application) : AndroidViewModel(applicatio
         var totalFrames = 0
         var droppedFrames = 0
 
-        // Simulate rendering loop (in real implementation, use actual GL rendering)
         while (System.currentTimeMillis() - startTime < durationMs) {
             val frameStart = System.nanoTime()
 
-            // Simulate frame work
-            delay(16) // ~60fps target
+            delay(16)
 
             val frameTime = (System.nanoTime() - frameStart) / 1_000_000f
             frameTimes.add(frameTime)
@@ -60,7 +58,6 @@ class BenchmarkViewModel(application: Application) : AndroidViewModel(applicatio
             _state.value = _state.value.copy(progress = progress)
         }
 
-        // Calculate metrics
         val sorted = frameTimes.sorted()
         val avgFps = 1000f / frameTimes.average().toFloat()
         val minFps = 1000f / sorted.last()
@@ -99,7 +96,6 @@ class BenchmarkViewModel(application: Application) : AndroidViewModel(applicatio
         val memInfo = ActivityManager.MemoryInfo()
         am.getMemoryInfo(memInfo)
 
-        // Simplified CPU usage estimation
         val usedMemPercent = (1 - memInfo.availMem.toFloat() / memInfo.totalMem) * 100
         return usedMemPercent.coerceIn(0f, 100f)
     }
@@ -107,7 +103,7 @@ class BenchmarkViewModel(application: Application) : AndroidViewModel(applicatio
     private fun getBatteryTemperature(): Float {
         val bm = getApplication<Application>().getSystemService(Context.BATTERY_SERVICE) as BatteryManager
         val temp = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
-        return temp / 10f // Convert to Celsius (simplified)
+        return temp / 10f
     }
 
     fun clearResults() {

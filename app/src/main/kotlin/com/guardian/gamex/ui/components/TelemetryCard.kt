@@ -1,4 +1,4 @@
-package com.gamex.ui.components
+package com.guardian.gamex.ui.components
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.animateFloatAsState
@@ -11,9 +11,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.gamex.service.FpsData
-import com.gamex.ui.theme.ElectricCyan
-import com.gamex.ui.theme.NeonRed
+import com.guardian.gamex.service.FpsData
+import com.guardian.gamex.ui.theme.ElectricCyan
+import com.guardian.gamex.ui.theme.NeonRed
 
 @Composable
 fun TelemetryCard(
@@ -94,7 +94,7 @@ fun TelemetryCard(
 private fun TelemetryItem(
     label: String,
     value: String,
-    color: Color
+    color: androidx.compose.ui.graphics.Color
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally

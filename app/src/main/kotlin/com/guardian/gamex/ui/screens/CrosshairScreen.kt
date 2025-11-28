@@ -1,4 +1,4 @@
-package com.gamex.ui.screens
+package com.guardian.gamex.ui.screens
 
 import android.content.Intent
 import android.net.Uri
@@ -22,8 +22,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.gamex.service.OverlayService
-import com.gamex.viewmodel.CrosshairViewModel
+import com.guardian.gamex.service.OverlayService
+import com.guardian.gamex.viewmodel.CrosshairViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -65,7 +65,6 @@ fun CrosshairScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Enable/Disable Toggle
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
@@ -123,7 +122,6 @@ fun CrosshairScreen(
                 }
             }
 
-            // Warning Banner
             Card(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.errorContainer
@@ -142,7 +140,6 @@ fun CrosshairScreen(
                 }
             }
 
-            // Style Selection
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(
                     modifier = Modifier.padding(16.dp),
@@ -162,7 +159,7 @@ fun CrosshairScreen(
                             FilterChip(
                                 selected = settings.style == style,
                                 onClick = { viewModel.setStyle(style) },
-                                label = { Text(style.capitalize()) },
+                                label = { Text(style.replaceFirstChar { it.uppercase() }) },
                                 modifier = Modifier.weight(1f)
                             )
                         }
@@ -170,7 +167,6 @@ fun CrosshairScreen(
                 }
             }
 
-            // Size Slider
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(
                     modifier = Modifier.padding(16.dp),
@@ -190,7 +186,6 @@ fun CrosshairScreen(
                 }
             }
 
-            // Opacity Slider
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(
                     modifier = Modifier.padding(16.dp),
@@ -209,7 +204,6 @@ fun CrosshairScreen(
                 }
             }
 
-            // Color Picker
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(
                     modifier = Modifier.padding(16.dp),
@@ -254,7 +248,6 @@ fun CrosshairScreen(
                 }
             }
 
-            // Apply Button
             if (settings.enabled) {
                 Button(
                     onClick = {

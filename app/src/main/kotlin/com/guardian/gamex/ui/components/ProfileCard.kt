@@ -1,4 +1,4 @@
-package com.gamex.ui.components
+package com.guardian.gamex.ui.components
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.*

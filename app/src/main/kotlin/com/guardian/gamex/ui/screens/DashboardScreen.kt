@@ -1,4 +1,4 @@
-package com.gamex.ui.screens
+package com.guardian.gamex.ui.screens
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.*
@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.gamex.ui.components.*
-import com.gamex.viewmodel.DashboardViewModel
+import com.guardian.gamex.ui.components.*
+import com.guardian.gamex.viewmodel.DashboardViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -54,7 +54,6 @@ fun DashboardScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Device Info Banner
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
@@ -85,20 +84,17 @@ fun DashboardScreen(
                 }
             }
 
-            // Telemetry Card
             TelemetryCard(
                 fpsData = state.fpsData,
                 cpuUsage = state.cpuUsage,
                 batteryTemp = state.batteryTemp
             )
 
-            // Performance Profiles
             ProfileCard(
                 currentProfile = state.currentProfile,
                 onProfileSelect = { viewModel.setProfile(it) }
             )
 
-            // Quick Actions
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
@@ -116,7 +112,7 @@ fun DashboardScreen(
                     )
 
                     QuickActionButton(
-                        icon = Icons.Default.Crosshair,
+                        icon = Icons.Default.GpsFixed,
                         title = "Crosshair Overlay",
                         subtitle = if (state.overlayEnabled) "Active" else "Inactive",
                         onClick = onCrosshairClick

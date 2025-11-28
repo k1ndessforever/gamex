@@ -1,4 +1,4 @@
-package com.gamex // Corrected package name
+package com.guardian.gamex
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,15 +12,12 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.guardian.gamex.service.FpsMonitor // Corrected import
+import com.guardian.gamex.service.FpsMonitor
 import com.guardian.gamex.ui.screens.*
 import com.guardian.gamex.ui.theme.GameXTheme
 import com.guardian.gamex.viewmodel.DashboardViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
-
-// ... rest of the file
-
 
 class MainActivity : ComponentActivity() {
 
@@ -29,7 +26,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Attach FPS monitor to window
         fpsMonitor.attachToWindow(window)
 
         setContent {
@@ -57,17 +53,15 @@ fun GameXApp(fpsMonitor: FpsMonitor) {
     val navController = rememberNavController()
     val dashboardViewModel: DashboardViewModel = viewModel()
 
-    // Update FPS data in dashboard
     LaunchedEffect(fpsMonitor) {
         while (isActive) {
             val fpsData = fpsMonitor.fpsData.value
             dashboardViewModel.updateFpsData(fpsData)
 
-            // Update CPU and battery (simplified)
             dashboardViewModel.updateCpuUsage((30..60).random().toFloat())
             dashboardViewModel.updateBatteryTemp((28..42).random().toFloat())
 
-            delay(1000) // Update every second
+            delay(1000)
         }
     }
 

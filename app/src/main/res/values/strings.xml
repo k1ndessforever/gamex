@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">GameX</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_title">GameX</string>
+    <string name="telemetry_title">Real-Time Telemetry</string>
+    <string name="profiles_title">Performance Profiles</string>
+    <string name="quick_actions_title">Quick Actions</string>
+
+    <!-- Optimization -->
+    <string name="optimization_title">One-Touch Optimization</string>
+    <string name="optimization_progress">Progress</string>
+    <string name="optimization_complete">Optimization Complete!</string>
+    <string name="optimization_complete_desc">Your device is now optimized for gaming</string>
+    <string name="optimization_info">Each step will open the relevant system settings. Apply the suggested changes and return here.</string>
+
+    <!-- Crosshair -->
+    <string name="crosshair_title">Crosshair Overlay</string>
+    <string name="crosshair_active">Active</string>
+    <string name="crosshair_inactive">Inactive</string>
+    <string name="crosshair_tos_title">Terms of Use</string>
+    <string name="crosshair_tos_message">Crosshair overlays are provided for single-player and casual use only. Using overlays in competitive multiplayer games may violate their terms of service and could result in penalties or bans. By accepting, you agree to use this feature responsibly.</string>
+    <string name="crosshair_warning">Using overlays in competitive multiplayer games may violate their terms of service.</string>
+    <string name="crosshair_style_label">Style</string>
+    <string name="crosshair_size_label">Size: %d</string>
+    <string name="crosshair_opacity_label">Opacity: %d%%</string>
+    <string name="crosshair_color_label">Color</string>
+    <string name="crosshair_apply">Apply Changes</string>
+
+    <!-- Benchmark -->
+    <string name="benchmark_title">Benchmark</string>
+    <string name="benchmark_test_title">Performance Test</string>
+    <string name="benchmark_test_desc">Runs a 60-second rendering test to measure device performance</string>
+    <string name="benchmark_start">Start Benchmark</string>
+    <string name="benchmark_progress">%d%% Complete</string>
+    <string name="benchmark_latest_result">Latest Result</string>
+    <string name="benchmark_recent_results">Recent Results</string>
+    <string name="benchmark_clear_history">Clear History</string>
+
+    <!-- Common -->
+    <string name="action_back">Back</string>
+    <string name="action_done">Done</string>
+    <string name="action_accept">I Accept</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_open_settings">Open Settings</string>
+
+    <!-- Notifications -->
+    <string name="notification_overlay_title">GameX Overlay Active</string>
+    <string name="notification_overlay_text">Crosshair overlay is running</string>
+    <string name="notification_performance_title">GameX Performance Mode</string>
+    <string name="notification_performance_text">Optimization active</string>
+
+    <!-- Permissions -->
+    <string name="permission_overlay_required">Overlay permission required</string>
+    <string name="permission_usage_stats_required">Usage stats permission required</string>
+</resources>
